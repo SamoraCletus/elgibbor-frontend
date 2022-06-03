@@ -1,0 +1,28 @@
+
+.parent {
+    margin-top: 4rem;
+}
+.menu-div {
+    width: 90%;
+    display: flex;
+    padding-top: 2rem;
+    padding-left: 1.4rem;
+    color: #40fe ;
+}
+
+.menu-div svg{
+    margin-right: 1rem;
+}
+
+.select-classes {
+    border-color: #40fe;
+}
+
+label {
+    color: #40fe !important;;
+}
+
+input {
+    border-color:#40fe !important;
+    color: #40fe;
+}

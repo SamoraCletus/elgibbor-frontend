@@ -1,0 +1,22 @@
+
+.form {
+    width: 80%;
+    height: 80vh;
+    border: 1px solid #ff00;
+    box-shadow: 2px 2px 2px 2px  #888888;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+.box{
+    display: flex;
+}
+
+h1 {
+    text-align: center;
+}
+
+button:hover {
+    color: white;
+    background-color: #1565C0 !important;
+}
