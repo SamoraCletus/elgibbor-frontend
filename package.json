@@ -25,6 +25,10 @@
 "dev": "react-scripts start",
 "build": "react-scripts build"
 },
+ "engines": {
+    "node": "16.x",
+     "npm": "6.x"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
