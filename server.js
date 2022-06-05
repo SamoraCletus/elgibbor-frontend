@@ -21,7 +21,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 if (process.env.NODE_ENV) {
   //static folder add
-  app.use(express.static("app/client/build"));
+  app.use(express.static("school-client"));
   app.get("*", function (req, res) {
     res.sendFile(path.resolve(__dirname, "school-client/public", "index.html"));
   });
