@@ -21,11 +21,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 if (process.env.NODE_ENV) {
   //static folder add
-  app.use(express.static("school-client"));
+  app.use(express.static("/school-client/public"));
   app.get("*", function (req, res) {
-    res.sendFile(path.resolve(__dirname, "school-client/public", "index.html"));
+  res.sendFile(path.resolve(__dirname, "public", "index.html"));
   });
 }
+console.log(path.resolve(__dirname, "public", "index.html"));
 app.listen(port, () => {
   console.log("Server is up!");
 });
