@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 
 
-import { TextField, Typography, Modal, Button, Grid, Paper, Box } from "@mui/material";
+import { TextField,  Modal, Button, Grid, Paper, Box } from "@mui/material";
 
-import { useMutation, useQuery } from "@apollo/client";
-import { GET_CLASS_OF_STUDENT, PROMOTE_STUDENTS } from "../graphql";
+import {  useQuery } from "@apollo/client";
+import { GET_CLASS_OF_STUDENT } from "../graphql";
 import { ClassContext } from "../utils/RouteHandler";
 
 
@@ -53,7 +53,7 @@ const style = {
 // `;
 
 const Classes = () => {
-  const [promoteToggle, setPromoteToggle] = useState(false);
+  // const [promoteToggle, setPromoteToggle] = useState(false);
   const [newClass, setNewClass] = useState("")
   const [editToggle, setEditToggle] = useState(false);
 
@@ -62,16 +62,16 @@ const Classes = () => {
   const handleClose = () => setOpen(false);
 
   const { studentClass } = useContext(ClassContext);
-  const [promoteStudent] = useMutation(PROMOTE_STUDENTS, {
-    variables: {
-      oldClass: studentClass,
-      newClass: newClass
-     }
-  });
-   const onPromote = () => {
-     setPromoteToggle(!promoteToggle);
+  // const [promoteStudent] = useMutation(PROMOTE_STUDENTS, {
+  //   variables: {
+  //     oldClass: studentClass,
+  //     newClass: newClass
+  //    }
+  // });
+  //  const onPromote = () => {
+  //    setPromoteToggle(!promoteToggle);
     
-  };
+  // };
    const onEdit = () => {
      setEditToggle(!editToggle);
      

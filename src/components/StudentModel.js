@@ -238,7 +238,7 @@ export function SinglePupilBottom({ otherNames, admissionNumber }) {
   const [newClass, setNewClass] = useState("");
   const [promoteToggle, setPromoteToggle] = useState(false);
   const [editToggle, setEditToggle] = useState(false);
-  const [errors, setErrors] = useState({});
+  // const [errors, setErrors] = useState({});
   const { onChange, onNumberChange, onSubmit, values, resetVales } = useForm(
     editPaymentCallback,
     {
@@ -255,9 +255,9 @@ export function SinglePupilBottom({ otherNames, admissionNumber }) {
       resetVales(values);
       alert("Payment Made Successfully");
     },
-    onError(err) {
-      setErrors(err.graphQLErrors[0]?.extensions.exception.errors);
-    },
+    // onError(err) {
+    //   setErrors(err.graphQLErrors[0]?.extensions.exception.errors);
+    // },
   });
   function editPaymentCallback() {
     editPayment();

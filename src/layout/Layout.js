@@ -12,7 +12,6 @@ import ExStudents from "../pages/ExStudents";
 import AllExPupils from "../pages/AllExPupils";
 import StudentProfile from "../pages/StudentProfile";
 import ExStudentProfile from "../pages/ExStudentProfile";
-import SearchStudent from "../pages/SearchStudent";
 import DisplayPupils from "../pages/DisplayPupils";
 
 import Classes from "../pages/Classes";
@@ -28,7 +27,6 @@ const Layout = () => {
           <Routes>
             <Route index path="/" element={<Home />} />
             <Route path="/layout/students" element={<Students />} />
-            <Route path="/search" element={<SearchStudent />} />
             <Route path="/exStudents" element={<ExStudents />} />
             <Route path="/addPupil" element={<Newpupil />} />
             <Route path="/displayPupils" element={<DisplayPupils />} />

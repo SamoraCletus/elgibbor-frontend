@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-import HomeIcon from "@mui/icons-material/Home";
+// import HomeIcon from "@mui/icons-material/Home";
 import PeopleIcon from "@mui/icons-material/People";
 import PersonIcon from "@mui/icons-material/Person";
 

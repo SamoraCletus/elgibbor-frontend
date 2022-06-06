@@ -13,8 +13,8 @@ import { REGISTER_STUDENT } from "../graphql";
 import { useForm } from "../utils/hooks";
 
 const Newpupil = () => {
-  const [area, setArea] = React.useState(0);
-  const [errors, setErrors] = React.useState({});
+  // const [area, setArea] = React.useState(0);
+  // const [errors, setErrors] = React.useState({});
 
   const [values, setValues] = React.useState({
     surname: "",
@@ -38,9 +38,9 @@ const Newpupil = () => {
     update() {
       alert("Student added Successfully");
     },
-    onError(err) {
-      setErrors(err.graphQLErrors[0]?.extensions.exception.errors);
-    },
+    // onError(err) {
+    //   setErrors(err.graphQLErrors[0]?.extensions.exception.errors);
+    // },
   });
   const onChange = (e) => {
     let value = e.target.value;
@@ -186,13 +186,13 @@ const Newpupil = () => {
             onChange={onLocalSelect}
             disabled={values.stateOfOrigin === "" ? true : false}
           >
-            {location[area].locals.map((Lga, id) => {
+            
               return (
-                <MenuItem value={Lga.name} key={Lga.id}>
-                  {Lga.name}
+                <MenuItem value="lga" >
+                  Ikom
                 </MenuItem>
               );
-            })}
+            
           </Select>
         </FormControl>
       </Box>
