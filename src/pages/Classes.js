@@ -62,16 +62,7 @@ const Classes = () => {
   const handleClose = () => setOpen(false);
 
   const { studentClass } = useContext(ClassContext);
-  // const [promoteStudent] = useMutation(PROMOTE_STUDENTS, {
-  //   variables: {
-  //     oldClass: studentClass,
-  //     newClass: newClass
-  //    }
-  // });
-  //  const onPromote = () => {
-  //    setPromoteToggle(!promoteToggle);
-    
-  // };
+  
    const onEdit = () => {
      setEditToggle(!editToggle);
      
@@ -110,14 +101,17 @@ const Classes = () => {
 
   return (
     <div style={{ marginTop: 80 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', padding: 10}}>
+      
       <h2 style={{ textAlign: "center" }}> {studentClass} Debtors List </h2>
       <Button
         variant="contained"
         style={{ backgroundColor: "#FF1450" }}
         onClick={handleOpen}
       >
-        Promote pupils to new class
+        Promote pupils to a new class
       </Button>
+      </div>
       <Box sx={{ flexGrow: 1, mt: 7 }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>

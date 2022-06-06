@@ -56,7 +56,7 @@ const PrintDebtorsList = () => {
       <Link to="/" style={{ fontSize: 20, marginLeft: 13 }}>
         Go back
       </Link>
-      <div id="printArea" style={{ paddingTop: 5, margin: 10, fontSize: 8 }}>
+      <div id="printArea" style={{ paddingTop: 10, margin: 10, fontSize: 8 }}>
         <h3> {studentClass} Debtors List</h3>
         <table style={{ border: "1px solid", marginTop: 20 }}>
           <thead>

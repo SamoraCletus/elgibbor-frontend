@@ -7,12 +7,7 @@ import { GET_STUDENTS } from "../graphql";
 
 const Home = () => {
   const { loading, error, data } = useQuery(GET_STUDENTS);
-  // const {studentData, setStudentData} = useState([])
-  // const { balance, setBalance } = useState('');
-
-  // useEffect(() => {
-  //   setStudentData(data)
-  //  });
+  
   if (loading) return "Loading...";
 
     let balances = data?.getStudents.map((student) => student.balance);

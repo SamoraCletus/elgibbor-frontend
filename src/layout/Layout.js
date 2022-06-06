@@ -6,7 +6,6 @@ import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Signup from "../pages/Signup";
 import Newpupil from "../pages/Newpupil";
-
 import Students from "../pages/Students";
 import ExStudents from "../pages/ExStudents";
 import AllExPupils from "../pages/AllExPupils";
