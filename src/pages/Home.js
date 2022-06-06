@@ -7,12 +7,20 @@ import { GET_STUDENTS } from "../graphql";
 
 const Home = () => {
   const { loading, error, data } = useQuery(GET_STUDENTS);
+  // const {studentData, setStudentData} = useState([])
+  // const { balance, setBalance } = useState('');
+
+  // useEffect(() => {
+  //   setStudentData(data)
+  //  });
   if (loading) return "Loading...";
-  let balances = data?.getStudents.map((student) => student.balance);
-  let collectedFunds = data?.getStudents.map((student) => student.schoolFees);
-  const outstandingBalance = balances.reduce((a, b) => a + b);
-  const revenue = collectedFunds.reduce((a, b) => a + b);
-  const totalRevenue = revenue - outstandingBalance;
+
+    let balances = data?.getStudents.map((student) => student.balance);
+    let collectedFunds = data?.getStudents.map((student) => student.schoolFees);
+    const outstandingBalance = balances.reduce((a, b) => a + b);
+    const revenue = collectedFunds.reduce((a, b) => a + b);
+    const totalRevenue = revenue - outstandingBalance;
+  
   if (error) return `Error! ${error.message}`;
   return (
     <div>

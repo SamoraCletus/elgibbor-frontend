@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ClassProvider } from "./utils/RouteHandler";
 
 const client = new ApolloClient({
-  uri: "http://localhost:5000/graphql",
+  uri: "https://el-gibbor-server.herokuapp.com/graphql",
   cache: new InMemoryCache(),
 });
 
