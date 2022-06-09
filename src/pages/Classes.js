@@ -82,21 +82,28 @@ const Classes = () => {
 
   let balances = data?.getClassOfStudents.map((student) => student.balance);
   
-
   let debtors = data?.getClassOfStudents.map((student) => {
-    return student.balance > 0 && student;
+    
+    return student.cleared === false ? student : "No debtor in this class";
   });
+  // console.log(student.cleared)
+
   const outstandingBalance = balances?.reduce((a, b) => a + b);
-  const debtorsList = debtors?.map((student) => {
+  const debtorsList =
+    debtors?.map((student) => {
     return (
+      student.cleared === false ?
       <Item key={student.admissionNumber}>
         <p>
           {student.surname} {student.otherNames}
         </p>
         <p>#{student.balance}</p>
-      </Item>
+      </Item >
+        :
+        null
     );
-  });
+});
+
   if (error) return `Error! ${error.message}`;
 
   return (

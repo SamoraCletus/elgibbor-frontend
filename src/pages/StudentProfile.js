@@ -36,7 +36,7 @@ export default function StudentProfile() {
   const StudentHistory = paymentHistory.map((history) => {
     return <SinglePupilExtra key={Math.random()} history={history} />;
   });
-  console.log(data?.getStudentByNumber.otherNames);
+  
   return (
     <div style={{ marginTop: 70}}>
       <PupilProfile student={data?.getStudentByNumber} />

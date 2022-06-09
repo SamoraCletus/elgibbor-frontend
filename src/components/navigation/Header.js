@@ -15,7 +15,7 @@ const Header = () => {
       }}
     >
       <div className="header-name">
-        <h1>EL-Gibbor Nursery and Primary School</h1>
+        <h1>EL-Gibbor Nursery & Primary School</h1>
       </div>
       <div className="second-div">
         <Link to="/addPupil">

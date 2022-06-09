@@ -56,9 +56,9 @@ const PrintDebtorsList = () => {
       <Link to="/" style={{ fontSize: 20, marginLeft: 13 }}>
         Go back
       </Link>
-      <div id="printArea" style={{ paddingTop: 10, margin: 10, fontSize: 8 }}>
+      <div id="printArea" style={{  margin: 10, fontSize: 8 }}>
         <h3> {studentClass} Debtors List</h3>
-        <table style={{ border: "1px solid", marginTop: 20 }}>
+        <table style={{ border: "1px solid", marginTop: 10 }}>
           <thead>
             <tr>
               <th
@@ -76,14 +76,12 @@ const PrintDebtorsList = () => {
           <tbody>
             {debtors?.map((student) => {
               return (
+                student.cleared === false ?
                 <tr
                   key={student.admissionNumber}
-                  style={{ border: "1px solid" }}
+                  
                 >
                   <td
-                    style={{
-                      borderBottom: "1px solid",
-                    }}
                   >
                     {student.surname} {student.otherNames}
                   </td>
@@ -96,7 +94,8 @@ const PrintDebtorsList = () => {
                   >
                     {student.balance}
                   </td>
-                </tr>
+                  </tr>
+                  : null
               );
             })}
             <tr>
