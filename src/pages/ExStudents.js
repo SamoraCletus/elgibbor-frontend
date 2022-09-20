@@ -5,32 +5,31 @@ import { Link } from "react-router-dom";
 import { TextField } from "@mui/material";
 
 const Container = styled.div`
-  margin-top: 2%;
+  margin-top: 80px;
   display: flex;
   align-items: center;
   border-radius: 20px;
   justify-content: space-evenly;
-  border: 5px solid black;
+  border: 1px solid black;
   height: 40vh;
 `;
 const DialBox = styled.div`
-  margin-top: 5%;
+  
   width: 17vw;
-  height: 17vh;
+  height: 10vh;
   border-radius: 20px;
-  border: 2px solid black;
   padding: 2%;
   background: #40fe;
   display: flex;
   :hover {
-    background: blue;
-    border: 4px solid black;
+    margin-top: 7%
   }
 `;
 const Text = styled.h4`
   color: white;
   font-size: larger;
   justify-items: center;
+  cursor: pointer;
 `;
 const Icon = styled.span`
   margin-right: 2px;
@@ -45,9 +44,9 @@ const Button = styled.div`
   width: fit-content;
 `;
 const Modal = styled.div`
-  margin: 3%;
-  height: 60vh;
-  width: 70vw;
+  margin: 10%;
+  height: 30vh;
+  width: 50vw;
   text-align: center;
   color: white;
   border-radius: 30px;
@@ -75,7 +74,7 @@ const ExStudents = () => {
               <Icon>
                 <PersonIcon />
               </Icon>
-              Get ExStudent
+              Search for ExStudent
             </Text>
           </DialBox>
           <DialBox>
@@ -84,7 +83,7 @@ const ExStudents = () => {
                 <Icon>
                   <PersonIcon />
                 </Icon>
-                Get All ExStudents
+                See All ExStudents
               </Text>
             </Link>
           </DialBox>

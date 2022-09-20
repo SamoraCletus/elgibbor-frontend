@@ -3,13 +3,14 @@ import { styled } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 // import styled from "@emotion/styled";
 
-
+import '../styles/classes.css'
 
 import { TextField,  Modal, Button, Grid, Paper, Box } from "@mui/material";
 
-import {  useQuery } from "@apollo/client";
-import { GET_CLASS_OF_STUDENT } from "../graphql";
+import { useQuery, useMutation } from "@apollo/client";
+import { GET_CLASS_OF_STUDENT, PROMOTE_STUDENTS } from "../graphql";
 import { ClassContext } from "../utils/RouteHandler";
+
 
 
 
@@ -53,8 +54,10 @@ const style = {
 // `;
 
 const Classes = () => {
-  // const [promoteToggle, setPromoteToggle] = useState(false);
-  const [newClass, setNewClass] = useState("")
+  const [promoteToggle, setPromoteToggle] = useState(false);
+  const [newClass, setNewClass] = useState("");
+  const [oldClass, setOldClass] = useState("");
+
   const [editToggle, setEditToggle] = useState(false);
 
   const [open, setOpen] = React.useState(false);
@@ -62,62 +65,70 @@ const Classes = () => {
   const handleClose = () => setOpen(false);
 
   const { studentClass } = useContext(ClassContext);
-  
-   const onEdit = () => {
-     setEditToggle(!editToggle);
-     
-   };
-   const onInputNewClass = (e) => {
-     setNewClass(e.target.value);
-     console.log(newClass);
-   };
+
+  const onEdit = () => {
+    setEditToggle(!editToggle);
+  };
+  const onInputNewClass = (e) => {
+    setNewClass(e.target.value);
+    console.log(newClass);
+  };
+
+  const onInputOldClass = (e) => {
+    setOldClass(e.target.value);
+    console.log(oldClass);
+  };
+  // promote student
+  const [promoteStudent] = useMutation(PROMOTE_STUDENTS, {
+    variables: {
+      oldClass: oldClass,
+      newClass: newClass,
+    },
+  });
 
   const { loading, error, data } = useQuery(GET_CLASS_OF_STUDENT, {
     variables: { classNumber: studentClass },
   });
   if (loading) return "Loading...";
-  
-  
- 
 
   let balances = data?.getClassOfStudents.map((student) => student.balance);
-  
+
   let debtors = data?.getClassOfStudents.map((student) => {
-    
     return student.cleared === false ? student : "No debtor in this class";
   });
-  // console.log(student.cleared)
 
   const outstandingBalance = balances?.reduce((a, b) => a + b);
-  const debtorsList =
-    debtors?.map((student) => {
-    return (
-      student.cleared === false ?
+  const debtorsList = debtors?.map((student) => {
+    return student.cleared === false ? (
       <Item key={student.admissionNumber}>
         <p>
           {student.surname} {student.otherNames}
         </p>
         <p>#{student.balance}</p>
-      </Item >
-        :
-        null
-    );
-});
+      </Item>
+    ) : null;
+  });
 
   if (error) return `Error! ${error.message}`;
 
   return (
     <div style={{ marginTop: 80 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', padding: 10}}>
-      
-      <h2 style={{ textAlign: "center" }}> {studentClass} Debtors List </h2>
-      <Button
-        variant="contained"
-        style={{ backgroundColor: "#FF1450" }}
-        onClick={handleOpen}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: 10,
+        }}
       >
-        Promote pupils to a new class
-      </Button>
+        <h2 style={{ textAlign: "center" }}> {studentClass} Debtors List </h2>
+
+        <Button
+          variant="contained"
+          style={{ backgroundColor: "#FF1450" }}
+          onClick={handleOpen}
+        >
+          Promote pupils to a new class
+        </Button>
       </div>
       <Box sx={{ flexGrow: 1, mt: 7 }}>
         <Grid container spacing={2}>
@@ -141,8 +152,6 @@ const Classes = () => {
         </Grid>
       </Box>
 
-      
-
       <Modal
         open={open}
         onClose={handleClose}
@@ -154,20 +163,25 @@ const Classes = () => {
             name="newClass"
             onChange={onInputNewClass}
             value={newClass}
-           
             label="New Class"
             variant="outlined"
+            required
           />
           <div>
             <Button
               onClick={handleClose}
-              style={{ background: "red", color: "white" }}
+              style={{
+                background: "red",
+                color: "white",
+                marginRight: "28px",
+                marginTop: "10px",
+              }}
             >
               Close
             </Button>
             <Button
-              onClick={onEdit}
-              style={{ background: "green", color: "white" }}
+              onClick={promoteStudent}
+              style={{ background: "green", color: "white", marginTop: "10px" }}
             >
               Promote
             </Button>

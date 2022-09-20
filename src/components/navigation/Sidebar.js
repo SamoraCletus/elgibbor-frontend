@@ -26,7 +26,6 @@ const Sidebar = () => {
         width: 200,
         height: 900,
         position: "fixed",
-         
       }}
     >
       <div className="menu-div">
@@ -105,6 +104,12 @@ const Sidebar = () => {
               </MenuItem>
               <MenuItem value="Primary 5">
                 <Link to="/classes/primary5">Primary 5</Link>
+              </MenuItem>
+              <MenuItem value="JSS 1">
+                <Link to="/classes/jss-1">JSS 1</Link>
+              </MenuItem>
+              <MenuItem value="JSS 2">
+                <Link to="/classes/jss-2">JSS 2</Link>
               </MenuItem>
             </Select>
           </FormControl>

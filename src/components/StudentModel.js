@@ -19,7 +19,7 @@ const Container = styled.div`
   border: 1px solid black;
   border-radius: 20px;
   margin: auto;
-  margin-top: 3%;
+  margin-top: 7%;
   color: black;
 `;
 const Items = styled.div`
@@ -236,7 +236,7 @@ const ModalButtom = styled.div`
 export function SinglePupilBottom({ otherNames, admissionNumber }) {
   const [withdrawToggle, setWithdrawToggle] = useState(false);
   const [newClass, setNewClass] = useState("");
-  const [promoteToggle, setPromoteToggle] = useState(false);
+  const [demoteToggle, setDemoteToggle] = useState(false);
   const [editToggle, setEditToggle] = useState(false);
   // const [errors, setErrors] = useState({});
   const { onChange, onNumberChange, onSubmit, values, resetVales } = useForm(
@@ -277,24 +277,24 @@ export function SinglePupilBottom({ otherNames, admissionNumber }) {
       newClass: newClass,
     },
   });
-  const onPromote = () => {
-    setPromoteToggle(!promoteToggle);
+  const onDemote = () => {
+    setDemoteToggle(!demoteToggle);
     setWithdrawToggle(false);
     setEditToggle(false);
   };
   const onWithdraw = () => {
     setWithdrawToggle(!withdrawToggle);
-    setPromoteToggle(false);
+    setDemoteToggle(false);
     setEditToggle(false);
   };
   const onEdit = () => {
     setEditToggle(!editToggle);
-    setPromoteToggle(false);
+    setDemoteToggle(false);
     setWithdrawToggle(false);
   };
   return (
     <>
-      {!editToggle | promoteToggle | withdrawToggle && (
+      {!editToggle | demoteToggle | withdrawToggle && (
         <Container>
           <Title>Actions</Title>
           <Extra>
@@ -308,7 +308,7 @@ export function SinglePupilBottom({ otherNames, admissionNumber }) {
               Withdraw Pupil
             </Button>
             <Button
-              onClick={onPromote}
+              onClick={onDemote}
               style={{ background: "green", textAlign: "center" }}
             >
               Demote Student
@@ -329,6 +329,7 @@ export function SinglePupilBottom({ otherNames, admissionNumber }) {
             }}
             label="Term"
             variant="outlined"
+            required
           />
           <TextField
             name="academicSession"
@@ -339,6 +340,7 @@ export function SinglePupilBottom({ otherNames, admissionNumber }) {
             }}
             label="Session"
             variant="outlined"
+            required
           />
           <TextField
             name="amount"
@@ -350,6 +352,7 @@ export function SinglePupilBottom({ otherNames, admissionNumber }) {
             }}
             label="Amount"
             variant="outlined"
+            required
           />
           <ModalButtom>
             <Button onClick={onEdit}>Close</Button>
@@ -374,7 +377,7 @@ export function SinglePupilBottom({ otherNames, admissionNumber }) {
         </Modal>
       )}
 
-      {promoteToggle && (
+      {demoteToggle && (
         <Modal>
           <br />
           <TextField
@@ -384,13 +387,14 @@ export function SinglePupilBottom({ otherNames, admissionNumber }) {
             style={{
               background: "white",
             }}
+            required
             label="New Class"
             variant="outlined"
           />
           <ModalButtom>
-            <Button onClick={demoteStudent}>Go back</Button>
-            <Button onClick={onEdit} style={{ background: "green" }}>
-              Promote
+            <Button onClick={onDemote}>Go back</Button>
+            <Button onClick={demoteStudent} style={{ background: "green" }}>
+              Demote
             </Button>
           </ModalButtom>
         </Modal>

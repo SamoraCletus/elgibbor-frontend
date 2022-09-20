@@ -10,12 +10,16 @@ export default function AllExPulpils() {
   if (error) return `Error! ${error.message}`;
   const exStudents = data.getExStudents.map((exStudent) => {
     return (
+      <div style={{ marginTop: "10%"}}>
+      
       <Link
-        to={`/students/${exStudent.otherNames}`}
+        to={`/students/${exStudent.admissionNumber}`}
         key={exStudent.admissionNumber}
+        
       >
         <SinglePupil student={exStudent} />;
       </Link>
+      </div>
     );
   });
   return exStudents;

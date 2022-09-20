@@ -13,8 +13,7 @@ import { REGISTER_STUDENT } from "../graphql";
 import { useForm } from "../utils/hooks";
 
 const Newpupil = () => {
-  // const [area, setArea] = React.useState(0);
-  // const [errors, setErrors] = React.useState({});
+  
 
   const [values, setValues] = React.useState({
     surname: "",
@@ -38,9 +37,7 @@ const Newpupil = () => {
     update() {
       alert("Student added Successfully");
     },
-    // onError(err) {
-    //   setErrors(err.graphQLErrors[0]?.extensions.exception.errors);
-    // },
+    
   });
   const onChange = (e) => {
     let value = e.target.value;
@@ -82,7 +79,7 @@ const Newpupil = () => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} style= {{marginTop: "80px"}}>
       <h1>Add New Pupil</h1>
       <Box
         sx={{
@@ -141,6 +138,8 @@ const Newpupil = () => {
             <MenuItem value="Primary 4A">Primary 4A</MenuItem>
             <MenuItem value="Primary 4B">Primary 4B</MenuItem>
             <MenuItem value="Primary 5">Primary 5</MenuItem>
+            <MenuItem value="JSS 1">JSS 1</MenuItem>
+            <MenuItem value="JSS 2">JSS 2</MenuItem>
           </Select>
         </FormControl>
         <TextField
@@ -186,13 +185,8 @@ const Newpupil = () => {
             onChange={onLocalSelect}
             disabled={values.stateOfOrigin === "" ? true : false}
           >
-            
-              return (
-                <MenuItem value="lga" >
-                  Ikom
-                </MenuItem>
-              );
-            
+            return (<MenuItem value="lga">Ikom</MenuItem>
+            );
           </Select>
         </FormControl>
       </Box>

@@ -58,7 +58,7 @@ const DisplayPupils = () => {
         data.getStudents.map((student) => (
           <div key={student.admissionNumber}>
             <Link to={`/students/${student.admissionNumber}`}>
-              <SinglePupil student={student} />;
+              <SinglePupil student={student} />
             </Link>
           </div>
         ))}

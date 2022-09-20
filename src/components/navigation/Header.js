@@ -22,7 +22,7 @@ const Header = () => {
           <Button
             sx={{
               backgroundColor: "white",
-              padding: 1.2,
+              padding: 1.5,
               marginTop: 2,
               fontWeight: 600,
               color: "#40fe",
