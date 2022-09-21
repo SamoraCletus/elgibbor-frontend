@@ -79,13 +79,21 @@ const Classes = () => {
     console.log(oldClass);
   };
   // promote student
-  const [promoteStudent] = useMutation(PROMOTE_STUDENTS, {
+  const [promoteStudents] = useMutation(PROMOTE_STUDENTS, {
     variables: {
       oldClass: oldClass,
       newClass: newClass,
     },
   });
-
+  const promoteStudentsCallback =()=>{
+    try{
+     promoteStudents()
+    console.log("Students promoted successfully”)
+    } catch (error){
+      console.log(error)
+     }
+    
+   };
   const { loading, error, data } = useQuery(GET_CLASS_OF_STUDENT, {
     variables: { classNumber: studentClass },
   });
@@ -180,7 +188,7 @@ const Classes = () => {
               Close
             </Button>
             <Button
-              onClick={promoteStudent}
+              onClick={promoteStudentsCallback}
               style={{ background: "green", color: "white", marginTop: "10px" }}
             >
               Promote
