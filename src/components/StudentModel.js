@@ -278,6 +278,7 @@ export function SinglePupilBottom({ otherNames, admissionNumber }) {
     },
   });
   const onDemote = () => {
+    demoteStudent()
     setDemoteToggle(!demoteToggle);
     setWithdrawToggle(false);
     setEditToggle(false);
